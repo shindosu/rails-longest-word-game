@@ -1,11 +1,13 @@
-<h1>Result</h1>
-<%= @validate %>
-<%= @grid %>
-<% if @validate["found"] == true %>
-<p> <strong>Congratulations!</strong> <%= @validate["word"].upcase %> is a valid English word! </p>
-<% else %>
-<p>Sorry but <strong><%= @validate["word"].upcase %></strong> does not seem to be a valid English word... </p>
-<% end %>
-
-<%= link_to 'Play again', "/new" %>
+<div class="container">
+  <h1>Result</h1>
+  <% matching = @word & @grid.split("") %> <!--grid length is less than word-->
+  <% if @validate["found"] == true && @word.length == matching.length%> <!--if valid but doesnt belong in grid-->
+    <p> <strong>Congratulations!</strong> <%= @validate["word"].upcase %> is a valid English word! </p>
+  <% elsif @validate["found"] == true && @word.length < matching.length || @word.length > matching.length %>
+    <p> Sorry but <strong><%= @validate["word"].upcase %></strong> can't be built out of <%= @grid.split("").join(", ").upcase %> </p>
+  <% else %>
+  <p>Sorry but <strong><%= @validate["word"].upcase %></strong> does not seem to be a valid English word... </p>
+  <% end %>
+  <%= link_to 'Play again', "/new" %>
+</div>
 

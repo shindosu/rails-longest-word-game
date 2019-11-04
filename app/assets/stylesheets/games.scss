@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container{
+    position: relative;
+    top: 50px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
 .letters{
   background-color: #3397DB;
+  padding-top: 30px;
   width: 100px;
   height: 100px;
   text-align: center;
-  border: 2px solid black;
+  border: 2px solid rgb(63, 128, 175);
+  -webkit-box-shadow: 8px 7px 18px -8px rgba(148,148,148,1);
+  -moz-box-shadow: 8px 7px 18px -8px rgba(148,148,148,1);
+  box-shadow: 8px 7px 18px -8px rgba(148,148,148,1);
 }

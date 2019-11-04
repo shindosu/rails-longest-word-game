@@ -12,6 +12,7 @@ class GamesController < ApplicationController
     @url = "https://wagon-dictionary.herokuapp.com/#{params[:word]}"
     @read_url = open(@url).read
     @validate = JSON.parse(@read_url)
-    @grid = params[:grid]
+    @word = @validate["word"].split("")
+    @grid = params["grid"]
   end
 end
